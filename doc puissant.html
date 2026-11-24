@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Rapport de Cadrage - Projet Savoir Pour Tous</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+            counter-reset: page-counter;
+        }
+        /* C'est ici que l'on encadre le titre simplement et élégamment */
+        .title-box {
+            border: 3px solid #2c3e50;
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #000;
+            margin: 0 0 10px 0;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        h2.subtitle {
+            color: #000;
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .project-name {
+            color: #000;
+            font-size: 17px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            letter-spacing: 0.5px;
+        }
+        .meta {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin: 0;
+            font-style: italic;
+        }
+        h3 {
+            color: #000;
+            font-weight: bold;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            font-size: 18px;
+            page-break-after: avoid;
+        }
+        h4 {
+            color: #000;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        /* Style du tableau pour qu'il soit propre et lisible */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+            font-weight: bold;
+        }
+        /* Fond des cases uniforme (blanc) */
+        td {
+            background-color: #ffffff;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #95a5a6;
+            border-top: 1px solid #ecf0f1;
+            padding-top: 20px;
+        }
+        
+        /* Numérotation des pages */
+        .page-number {
+            position: fixed;
+            bottom: 20px;
+            right: 40px;
+            font-size: 12px;
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+        
+        @media print {
+            body { 
+                padding: 20px; 
+                counter-reset: page-counter;
+            }
+            .title-box { 
+                border: 3px solid #2c3e50; 
+            }
+            
+            /* Numérotation automatique des pages à l'impression */
+            @page {
+                @bottom-right {
+                    content: "Page " counter(page) " / " counter(pages);
+                    font-size: 10pt;
+                    color: #7f8c8d;
+                }
+            }
+            
+            .page-number {
+                display: none;
+            }
+            
+            h3 {
+                page-break-before: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title-box">
+        <h1>Rapport de Cadrage & d'Analyse Terrain</h1>
+        <h2 class="subtitle">Conception d'une Plateforme Numérique d'Alphabétisation pour Adultes</h2>
+        <p class="project-name">Projet 10: « SAVOIR POUR TOUS »</p>
+    </div>
+
+    <h3>1. Synthèse Executive du Projet</h3>
+    <p>Ce document dresse le bilan d'analyse stratégique pour la création de la future plateforme en ligne d'une ONG dédiée à l'alphabétisation des adultes en Côte d'Ivoire. L'objectif est double : répondre aux obligations structurelles de l'ONG et exploiter les données réelles issues d'une enquête terrain (20 répondants) afin de proposer des solutions ergonomiques, inclusives et adaptées aux réalités locales.</p>
+    <h4>Les Problèmes Majeurs de l'ONG à Résoudre :</h4>
+    <ul>
+        <li><strong>Déficit de visibilité :</strong> Les apprenants potentiels ignorent l'existence des centres, les horaires et les modalités pratiques d'inscription.</li>
+        <li><strong>Rupture de suivi pédagogique :</strong> Difficulté d'évaluer l'assiduité en temps réel et de centraliser la progression des élèves de manière fiable.</li>
+    </ul>
+
+    <h3>2. Analyse Détaillée des Résultats de l'Enquête Terrain</h3>
+    <p>L'enquête menée auprès de 20 personnes a permis de confronter les hypothèses théoriques aux besoins réels du public cible (Apprenants, Formateurs et Proches).</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 25%;">Question & Métrique</th>
+                <th style="width: 40%;">Constat Clé de l'Enquête</th>
+                <th style="width: 35%;">Résolution Applicative Directe</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Q1. Profil des répondants</strong><br>(75% Apprenants)</td>
+                <td>Le public cible direct est le premier utilisateur de la plateforme numérique (75%). Les formateurs (15%) et les proches (10%) complètent l'écosystème.</td>
+                <td>L'interface utilisateur (UI) principale doit être pensée en priorité pour l'adulte en cours d'apprentissage.</td>
+            </tr>
+            <tr>
+                <td><strong>Q2. Répartition Géographique</strong><br>(Dispersion locale)</td>
+                <td>Les demandes proviennent de communes diverses (Yopougon, Abobo, Anyama, Plateau, Tiebissou), avec une forte concentration à Bouaké (21,1%).</td>
+                <td>Intégration d'un filtre géographique obligatoire dès la page d'accueil pour trier les cours par commune.</td>
+            </tr>
+            <tr>
+                <td><strong>Q3 & Q7. Accès à l'information</strong><br>(55% d'incertitude)</td>
+                <td>55% des répondants ne savent pas où se situent les cours. De plus, 42,1% déclarent que trouver un centre est leur difficulté principale.</td>
+                <td>Développement d'un module de cartographie publique et accessible sans compte pour localiser le centre le plus proche.</td>
+            </tr>
+            <tr>
+                <td><strong>Q4. Niveau d'expérience</strong><br>(57,9% Nouveaux)</td>
+                <td>Une majorité écrasante (57,9%) n'a jamais assisté à aucun cours d'alphabétisation par le passé.</td>
+                <td>Élimination des textes complexes sur le parcours d'inscription. Utilisation d'un design épuré et visuel.</td>
+            </tr>
+            <tr>
+                <td><strong>Q5. Canal d'inscription</strong><br>(47,4% Internet)</td>
+                <td>Près de la moitié des usagers (47,4%) préfèrent s'inscrire en ligne. Cependant, le guichet physique au centre reste fort (36,8%).</td>
+                <td>Mise en place d'un système hybride : inscription en autonomie en ligne ET possibilité pour le formateur d'inscrire un élève manuellement.</td>
+            </tr>
+            <tr>
+                <td><strong>Q6. Disponibilités</strong><br>(60% le Samedi)</td>
+                <td>Le Samedi est le jour de disponibilité de référence pour 60% des répondants, les jours de semaine affichant un taux marginal (5% par jour).</td>
+                <td>Mise en avant prioritaire des parcours de formation du weekend sur le tableau de bord et l'application.</td>
+            </tr>
+            <tr>
+                <td><strong>Q8. Besoins pédagogiques</strong><br>(73,7% Demandeurs)</td>
+                <td>73,7% des participants expriment le souhait de recevoir des supports numériques pour travailler en dehors des heures de cours.</td>
+                <td>Création d'un espace de téléchargement partagé de fiches d'exercices et de cours simplifiés.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3. Résolutions Stratégiques & Spécifications Fonctionnelles</h3>
+    <p>Pour assurer la compréhension automatique du projet par tout lecteur, les fonctionnalités ont été divisées entre les exigences de base obligatoires et les innovations à forte valeur ajoutée déduites de l'enquête.</p>
+    
+    <h4>A. Fonctionnalités Obligatoires (Cahier des Charges)</h4>
+    <ul>
+        <li><strong>Espace Apprenant & Proches :</strong> Consultation simplifiée des sessions de cours (triées par horaire et commune) et formulaire d'inscription rapide (réalisable par l'apprenant ou un tiers).</li>
+        <li><strong>Espace Formateur :</strong> Planification et gestion des sessions assignées, émargement de la feuille de présence numérique à chaque cours et évaluation du niveau de maîtrise des compétences.</li>
+        <li><strong>Espace Administrateur (ONG) :</strong> Gestion et téléversement des ressources pédagogiques, et accès à un tableau de bord analytique centralisant les statistiques d'assiduité et le volume d'apprenants par centre.</li>
+    </ul>
+
+    <h4>B. Fonctionnalités Innovantes validées par l'Enquête Terrain (Les Bonus)</h4>
+    <ul>
+        <li> <strong>Module Localisateur Interactif de Centres</strong> (Solution Q3 & Q7) : Intégration d'une API cartographique permettant de repérer instantanément sur une carte les structures d'accueil d'Abidjan et de l'intérieur du pays (ex. Bouaké), avec calcul d'itinéraire simplifié.</li>
+        <li> <strong>Interface Inclusive Assistée par Audio</strong> (Solution Q4 & Q5) : Étant donné que 57,9% n'ont jamais suivi de cours, la plateforme proposera une option de synthèse vocale (lecture des consignes à voix haute) et des pictogrammes universels.</li>
+        <li> <strong>Mode Hors-Ligne & Hub de Documents</strong> (Solution Q8) : Mise à disposition d'un espace de stockage léger pour que l'apprenant puisse télécharger ses fiches d'exercices au format PDF ou audio afin de réviser chez lui sans connexion internet permanente.</li>
+        <li> <strong>Filtre Express "Spécial Weekend"</strong> (Solution Q6) : Ajout d'un bouton d'accès rapide dès l'écran de bienvenue permettant de filtrer instantanément toutes les sessions ouvertes le samedi.</li>
+    </ul>
+
+    <h3>4. Conclusion et Prochaines Étapes</h3>
+    <p>L'enquête valide entièrement l'utilité du projet d'alphabétisation et précise son orientation ergonomique. La plateforme ne doit pas seulement être un outil de gestion pour l'ONG, mais un véritable pont d'accessibilité numérique pour des populations en phase d'apprentissage. La prochaine étape consistera à concevoir l'arborescence fonctionnelle ainsi que les premiers maquettages (wireframes) de l'interface inclusive.</p>
+
+    <div class="footer">
+        <p>Rapport de Cadrage - Projet Savoir Pour Tous - Page <span class="page-number">1</span></p>
+    </div>
+
+</body>
+</html>

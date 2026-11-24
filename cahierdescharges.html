@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cahier des Charges - SAVOIR POUR TOUS</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background: #f5f7fa;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  /* PAGE DE GARDE */
+  .cover {
+    background: linear-gradient(135deg, #1e7e5f 0%, #2ecc71 50%, #f39c12 100%);
+    color: white;
+    padding: 80px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+  }
+  
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  
+  .cover-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .project-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .cover h1 {
+    font-size: 52px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .cover h2 {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    opacity: 0.95;
+  }
+  
+  .cover-info {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 20px 40px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    margin-top: 20px;
+  }
+  
+  .cover-info p {
+    margin: 8px 0;
+    font-size: 15px;
+  }
+  
+  /* CONTENU */
+  .content {
+    padding: 60px;
+  }
+  
+  /* SOMMAIRE */
+  .sommaire {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 50px;
+    border-left: 5px solid #1e7e5f;
+  }
+  
+  .sommaire h2 {
+    color: #1e7e5f;
+    font-size: 28px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .sommaire ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .sommaire li {
+    padding: 10px 15px;
+    background: white;
+    border-radius: 8px;
+    border-left: 3px solid #f39c12;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+  
+  .sommaire li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  /* SECTIONS */
+  .section {
+    margin-bottom: 50px;
+    page-break-inside: avoid;
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #1e7e5f;
+  }
+  
+  .section-number {
+    background: linear-gradient(135deg, #1e7e5f 0%, #2ecc71 100%);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(30,126,95,0.3);
+  }
+  
+  .section h2 {
+    font-size: 26px;
+    color: #1e7e5f;
+    font-weight: 700;
+  }
+  
+  .subsection {
+    margin: 25px 0;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #f39c12;
+  }
+  
+  .subsection h3 {
+    color: #e67e22;
+    font-size: 18px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .subsection p {
+    margin-bottom: 10px;
+    text-align: justify;
+  }
+  
+  .subsection ul {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  
+  .subsection li {
+    margin-bottom: 8px;
+    position: relative;
+  }
+  
+  .subsection li::marker {
+    color: #f39c12;
+  }
+  
+  /* CARTES UTILISATEURS */
+  .users-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .user-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-top: 4px solid;
+    transition: transform 0.3s;
+  }
+  
+  .user-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .user-card.apprenant { border-top-color: #3498db; }
+  .user-card.proche { border-top-color: #9b59b6; }
+  .user-card.formateur { border-top-color: #e67e22; }
+  .user-card.admin { border-top-color: #1e7e5f; }
+  
+  .user-card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .user-icon {
+    font-size: 28px;
+  }
+  
+  .user-card ul {
+    margin-left: 20px;
+  }
+  
+  .user-card li {
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  
+  /* CARTES FONCTIONNALITÉS */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .feature-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    border-left: 4px solid #1e7e5f;
+    transition: all 0.3s;
+  }
+  
+  .feature-card:hover {
+    box-shadow: 0 8px 25px rgba(30,126,95,0.15);
+    transform: translateY(-3px);
+  }
+  
+  .feature-card h3 {
+    color: #1e7e5f;
+    font-size: 17px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .feature-card p, .feature-card ul {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .feature-card ul {
+    margin-left: 20px;
+    margin-top: 8px;
+  }
+  
+  .feature-card li {
+    margin-bottom: 5px;
+  }
+  
+  /* INNOVATIONS */
+  .innovation-card {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 15px;
+    border-left: 5px solid #f39c12;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  .innovation-icon {
+    font-size: 40px;
+    flex-shrink: 0;
+  }
+  
+  .innovation-card h3 {
+    color: #d35400;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .innovation-card p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* TABLEAU PLANNING */
+  .planning-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+  
+  .planning-table thead {
+    background: linear-gradient(135deg, #1e7e5f 0%, #2ecc71 100%);
+    color: white;
+  }
+  
+  .planning-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+  }
+  
+  .planning-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .planning-table tbody tr {
+    background: white;
+    transition: background 0.2s;
+  }
+  
+  .planning-table tbody tr:nth-child(even) {
+    background: #f8f9fa;
+  }
+  
+  .planning-table tbody tr:hover {
+    background: #e8f5e9;
+  }
+  
+  .step-number {
+    background: #f39c12;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  
+  /* RÉSULTATS */
+  .results-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+  
+  .result-item {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #2ecc71;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+  }
+  
+  .result-check {
+    color: #2ecc71;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  /* ÉVOLUTION */
+  .evolution-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .evolution-item {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(102,126,234,0.3);
+    transition: transform 0.3s;
+  }
+  
+  .evolution-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .evolution-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  /* CONCLUSION */
+  .conclusion {
+    background: linear-gradient(135deg, #1e7e5f 0%, #2ecc71 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .conclusion h2 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .conclusion p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.8;
+  }
+  
+  .principles {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .principle {
+    background: rgba(255,255,255,0.2);
+    padding: 15px 30px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  /* PRINT */
+  @media print {
+    body {
+      background: white;
+      padding: 0;
+    }
+    .container {
+      box-shadow: none;
+      border-radius: 0;
+    }
+    .cover {
+      page-break-after: always;
+    }
+    .section {
+      page-break-inside: avoid;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .content { padding: 30px 20px; }
+    .cover { padding: 50px 30px; }
+    .cover h1 { font-size: 36px; }
+    .cover h2 { font-size: 18px; }
+    .users-grid, .features-grid, .results-list, .evolution-grid {
+      grid-template-columns: 1fr;
+    }
+    .sommaire ul { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- PAGE DE GARDE -->
+  <div class="cover">
+    <div class="cover-content">
+      <div class="project-tag">PROJET 10</div>
+      <h1>SAVOIR POUR TOUS</h1>
+      <h2>Cahier des charges fonctionnel et technique</h2>
+      <p style="font-size: 18px; margin-bottom: 30px;">Conception et développement d'une plateforme numérique<br>d'alphabétisation pour adultes en Côte d'Ivoire</p>
+      <div class="cover-info">
+        <p><strong>📋 Document :</strong> Cahier des charges fonctionnel et technique</p>
+        <p><strong>🏢 Structure porteuse :</strong> ONG dédiée à l'alphabétisation des adultes</p>
+        <p><strong>🌍 Zone de déploiement :</strong> Côte d'Ivoire</p>
+        <p><strong>📌 Version :</strong> 1.0</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- SOMMAIRE -->
+    <div class="sommaire">
+      <h2>📑 Sommaire</h2>
+      <ul>
+        <li>1. Présentation générale du projet</li>
+        <li>2. Identification des utilisateurs</li>
+        <li>3. Description des fonctionnalités attendues</li>
+        <li>4. Fonctionnalités innovantes</li>
+        <li>5. Exigences ergonomiques et accessibilité</li>
+        <li>6. Exigences techniques</li>
+        <li>7. Contraintes du projet</li>
+        <li>8. Résultats attendus</li>
+        <li>9. Planning prévisionnel de réalisation</li>
+        <li>10. Critères de validation et de réception</li>
+        <li>11. Évolution future de la plateforme</li>
+        <li>12. Conclusion</li>
+      </ul>
+      <p style="margin-top: 20px; font-size: 13px; color: #666; font-style: italic;">
+        Note : le présent cahier des charges est établi à partir du rapport de cadrage et d'analyse terrain fourni pour le projet « Savoir Pour Tous ».
+      </p>
+    </div>
+
+    <!-- 1. PRÉSENTATION -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <h2>Présentation générale du projet</h2>
+      </div>
+
+      <div class="subsection">
+        <h3>📖 1.1. Contexte</h3>
+        <p>L'alphabétisation des adultes représente un enjeu important pour le développement social et économique de la Côte d'Ivoire. Dans le cadre de ses activités, une ONG souhaite mettre en place une plateforme numérique permettant de faciliter l'accès aux programmes d'alphabétisation, de simplifier les inscriptions et d'améliorer le suivi pédagogique des apprenants.</p>
+        <p>Une enquête terrain réalisée auprès de 20 personnes a permis d'identifier plusieurs difficultés rencontrées par les apprenants, les formateurs et leurs proches. Les résultats montrent notamment un manque d'informations sur les centres de formation, des difficultés de localisation et un besoin important de supports pédagogiques accessibles.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>❓ 1.2. Problématique</h3>
+        <p>Comment concevoir une plateforme numérique simple, accessible et adaptée aux réalités locales permettant aux adultes d'accéder facilement aux cours d'alphabétisation, de s'inscrire et de suivre leur progression pédagogique ?</p>
+      </div>
+
+      <div class="subsection">
+        <h3>🎯 1.3. Objectif général</h3>
+        <p>Concevoir et développer une plateforme numérique inclusive permettant de faciliter l'accès à l'alphabétisation des adultes en Côte d'Ivoire tout en améliorant la gestion administrative et pédagogique des centres de formation.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>✨ 1.4. Objectifs spécifiques</h3>
+        <ul>
+          <li>Faciliter la localisation des centres d'alphabétisation</li>
+          <li>Permettre aux apprenants de consulter les cours disponibles</li>
+          <li>Simplifier les procédures d'inscription</li>
+          <li>Permettre aux formateurs de gérer leurs séances</li>
+          <li>Assurer le suivi des présences et de la progression des apprenants</li>
+          <li>Mettre à disposition des ressources pédagogiques numériques</li>
+          <li>Faciliter la gestion des centres par l'administration de l'ONG</li>
+          <li>Rendre la plateforme accessible aux personnes ayant peu d'expérience numérique</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2. UTILISATEURS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <h2>Identification des utilisateurs</h2>
+      </div>
+
+      <div class="users-grid">
+        <div class="user-card apprenant">
+          <h3><span class="user-icon">👨‍🎓</span> Les apprenants</h3>
+          <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Public principal de la plateforme</p>
+          <ul>
+            <li>Consulter les centres et rechercher les cours par commune</li>
+            <li>Consulter les horaires et disponibilités</li>
+            <li>S'inscrire à une formation</li>
+            <li>Télécharger les supports pédagogiques</li>
+            <li>Suivre leur progression pédagogique</li>
+          </ul>
+        </div>
+
+        <div class="user-card proche">
+          <h3><span class="user-icon">👨‍👩‍👧</span> Les proches</h3>
+          <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Accompagnent les apprenants</p>
+          <ul>
+            <li>Consulter les centres disponibles</li>
+            <li>Rechercher les formations adaptées</li>
+            <li>Effectuer une inscription au nom d'un apprenant</li>
+            <li>Consulter les informations pratiques</li>
+          </ul>
+        </div>
+
+        <div class="user-card formateur">
+          <h3><span class="user-icon">👨‍🏫</span> Les formateurs</h3>
+          <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Gestion pédagogique</p>
+          <ul>
+            <li>Consulter les apprenants inscrits</li>
+            <li>Planifier les séances et gérer les horaires</li>
+            <li>Enregistrer les présences</li>
+            <li>Évaluer le niveau de maîtrise des compétences</li>
+            <li>Consulter la progression des apprenants</li>
+          </ul>
+        </div>
+
+        <div class="user-card admin">
+          <h3><span class="user-icon">🏢</span> Les administrateurs</h3>
+          <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Gestion globale de la plateforme</p>
+          <ul>
+            <li>Gérer les comptes utilisateurs</li>
+            <li>Gérer les centres, formateurs, apprenants et formations</li>
+            <li>Publier les ressources pédagogiques</li>
+            <li>Consulter les statistiques et activités des centres</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. FONCTIONNALITÉS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <h2>Description des fonctionnalités attendues</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>🏠 3.1. Page d'accueil</h3>
+          <ul>
+            <li>Présentation de l'ONG et des programmes</li>
+            <li>Accès aux centres et informations pratiques</li>
+            <li>Bouton d'inscription bien visible</li>
+            <li>Accès rapide aux formations du samedi</li>
+            <li>Interface simple et compréhensible</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>🔍 3.2. Recherche des centres</h3>
+          <ul>
+            <li>Recherche par commune</li>
+            <li>Affichage des centres avec coordonnées et horaires</li>
+            <li>Localisation sur une carte</li>
+            <li>Itinéraire simplifié vers le centre</li>
+            <li>Cartographie : Abidjan, Bouaké et autres localités</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>📝 3.3. Module d'inscription</h3>
+          <p><strong>Inscription en ligne :</strong> formulaire, enregistrement des informations, choix du centre et des disponibilités, validation.</p>
+          <p style="margin-top: 10px;"><strong>Inscription par le formateur :</strong> enregistrement manuel de l'apprenant, association à un centre.</p>
+          <p style="margin-top: 10px;"><em>Le formulaire devra être simple et accessible.</em></p>
+        </div>
+
+        <div class="feature-card">
+          <h3>👨‍🎓 3.4. Espace apprenant</h3>
+          <ul>
+            <li>Consulter ses informations et son centre</li>
+            <li>Visualiser son planning</li>
+            <li>Accéder aux ressources pédagogiques</li>
+            <li>Télécharger des exercices</li>
+            <li>Consulter son évolution pédagogique</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>👨‍🏫 3.5. Espace formateur</h3>
+          <ul>
+            <li>Consulter la liste des apprenants</li>
+            <li>Gérer et planifier les séances</li>
+            <li>Feuille de présence numérique</li>
+            <li>Suivre l'assiduité et évaluer les compétences</li>
+            <li>Consulter l'évolution des apprenants</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>🏢 3.6. Espace administrateur</h3>
+          <ul>
+            <li>Gérer utilisateurs, centres, formations, formateurs</li>
+            <li>Publier et gérer les documents pédagogiques</li>
+            <li>Consulter les statistiques</li>
+            <li>Suivre les activités des centres</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card" style="margin-top: 20px;">
+        <h3>📚 3.7. Bibliothèque pédagogique</h3>
+        <p>Espace de téléchargement des ressources pédagogiques :</p>
+        <ul>
+          <li>Fichiers PDF</li>
+          <li>Documents pédagogiques simplifiés</li>
+          <li>Fichiers audio</li>
+          <li>Fiches d'exercices</li>
+        </ul>
+        <p style="margin-top: 10px;"><em>Les apprenants pourront télécharger ces ressources pour les consulter en dehors des heures de formation.</em></p>
+      </div>
+    </div>
+
+    <!-- 4. INNOVATIONS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <h2>Fonctionnalités innovantes</h2>
+      </div>
+
+      <div class="innovation-card">
+        <div class="innovation-icon">🗺️</div>
+        <div>
+          <h3>4.1. Cartographie interactive</h3>
+          <p>Un module de localisation permettra aux utilisateurs de trouver les centres d'alphabétisation les plus proches, avec une représentation sur carte et un itinéraire simplifié.</p>
+        </div>
+      </div>
+
+      <div class="innovation-card">
+        <div class="innovation-icon">🔊</div>
+        <div>
+          <h3>4.2. Assistance audio</h3>
+          <p>Une fonctionnalité de synthèse vocale permettra de lire à haute voix certaines consignes et informations présentes sur la plateforme. Elle facilitera l'utilisation par les personnes ayant des difficultés de lecture.</p>
+        </div>
+      </div>
+
+      <div class="innovation-card">
+        <div class="innovation-icon">📴</div>
+        <div>
+          <h3>4.3. Mode hors connexion</h3>
+          <p>La plateforme permettra le téléchargement des ressources pédagogiques afin que les apprenants puissent travailler sans connexion Internet permanente. Le fonctionnement hors connexion sera limité aux ressources préalablement téléchargées.</p>
+        </div>
+      </div>
+
+      <div class="innovation-card">
+        <div class="innovation-icon">📅</div>
+        <div>
+          <h3>4.4. Filtre spécial week-end</h3>
+          <p>Un bouton spécifique permettra d'afficher rapidement les formations disponibles le samedi. Cette fonctionnalité répond au résultat de l'enquête indiquant que <strong>60% des répondants privilégient cette journée</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. ERGONOMIE -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <h2>Exigences ergonomiques et accessibilité</h2>
+      </div>
+
+      <div class="subsection">
+        <p>La plateforme devra respecter les exigences suivantes :</p>
+        <ul>
+          <li>Interface simple et intuitive</li>
+          <li>Textes courts et faciles à comprendre</li>
+          <li>Utilisation de pictogrammes explicites</li>
+          <li>Boutons suffisamment visibles</li>
+          <li>Navigation facile entre les différentes rubriques</li>
+          <li>Assistance audio pour certaines consignes</li>
+          <li>Adaptation aux téléphones, tablettes et ordinateurs</li>
+          <li>Limitation des étapes nécessaires à l'inscription</li>
+        </ul>
+        <p style="margin-top: 15px; padding: 15px; background: #e8f5e9; border-radius: 8px; border-left: 4px solid #2ecc71;">
+          <strong>🎯 Objectif :</strong> permettre à une personne ayant peu d'expérience avec les outils numériques d'utiliser facilement la plateforme.
+        </p>
+      </div>
+    </div>
+
+    <!-- 6. TECHNIQUE -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <h2>Exigences techniques</h2>
+      </div>
+
+      <div class="subsection">
+        <h3>🌐 6.1. Accessibilité technique</h3>
+        <ul>
+          <li>Accessible depuis un navigateur Internet</li>
+          <li>Compatible avec ordinateurs, smartphones et tablettes</li>
+          <li>Interface adaptée aux petits écrans</li>
+          <li>Fonctionnement avec une connexion Internet de qualité variable</li>
+          <li>Téléchargement des ressources pédagogiques</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <h3>🔐 6.2. Gestion des comptes</h3>
+        <p>Système d'authentification adapté aux différents profils. Chaque utilisateur disposera de droits correspondant à son rôle.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>🛡️ 6.3. Sécurité</h3>
+        <ul>
+          <li>Protection des comptes utilisateurs</li>
+          <li>Sécurisation des données personnelles</li>
+          <li>Gestion des autorisations selon les profils</li>
+          <li>Protection contre les accès non autorisés</li>
+          <li>Sauvegarde régulière des données</li>
+          <li>Procédure de récupération des comptes</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <h3>💾 6.4. Gestion des données</h3>
+        <p>Les informations concernant les apprenants, les formateurs, les centres et les formations devront être centralisées dans une base de données.</p>
+      </div>
+    </div>
+
+    <!-- 7. CONTRAINTES -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">7</div>
+        <h2>Contraintes du projet</h2>
+      </div>
+
+      <div class="subsection">
+        <h3>👥 7.1. Contraintes humaines</h3>
+        <p>La plateforme devra être adaptée à des utilisateurs ayant des niveaux différents de maîtrise du numérique et de lecture.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>🌍 7.2. Contraintes géographiques</h3>
+        <p>Le projet devra tenir compte de la dispersion géographique des apprenants et des centres de formation sur le territoire ivoirien.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>📶 7.3. Contraintes liées à Internet</h3>
+        <p>La plateforme devra être légère et proposer des ressources téléchargeables pour réduire la dépendance à une connexion permanente.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>📖 7.4. Contraintes pédagogiques</h3>
+        <p>Les contenus et les fonctionnalités devront être adaptés aux besoins des adultes en apprentissage.</p>
+      </div>
+    </div>
+
+    <!-- 8. RÉSULTATS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">8</div>
+        <h2>Résultats attendus</h2>
+      </div>
+
+      <p>À la fin du projet, les résultats suivants devront être obtenus :</p>
+
+      <div class="results-list">
+        <div class="result-item"><span class="result-check">✓</span> Plateforme numérique fonctionnelle</div>
+        <div class="result-item"><span class="result-check">✓</span> Système d'inscription des apprenants</div>
+        <div class="result-item"><span class="result-check">✓</span> Recherche et localisation des centres</div>
+        <div class="result-item"><span class="result-check">✓</span> Espace personnel pour les apprenants</div>
+        <div class="result-item"><span class="result-check">✓</span> Espace de gestion pour les formateurs</div>
+        <div class="result-item"><span class="result-check">✓</span> Tableau de bord pour les administrateurs</div>
+        <div class="result-item"><span class="result-check">✓</span> Système de gestion des présences</div>
+        <div class="result-item"><span class="result-check">✓</span> Bibliothèque de ressources pédagogiques</div>
+        <div class="result-item"><span class="result-check">✓</span> Fonctionnalité d'assistance audio</div>
+        <div class="result-item"><span class="result-check">✓</span> Système de téléchargement des documents</div>
+        <div class="result-item"><span class="result-check">✓</span> Filtre pour les formations du samedi</div>
+      </div>
+    </div>
+
+    <!-- 9. PLANNING -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">9</div>
+        <h2>Planning prévisionnel de réalisation</h2>
+      </div>
+
+      <p>Le calendrier définitif devra être établi par l'équipe chargée du développement. Les grandes étapes proposées sont les suivantes :</p>
+
+      <table class="planning-table">
+        <thead>
+          <tr>
+            <th style="width: 80px;">Étape</th>
+            <th>Travaux à réaliser</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="step-number">1</span></td>
+            <td>Analyse des besoins et validation du cahier des charges</td>
+          </tr>
+          <tr>
+            <td><span class="step-number">2</span></td>
+            <td>Conception de l'architecture de la plateforme</td>
+          </tr>
+          <tr>
+            <td><span class="step-number">3</span></td>
+            <td>Réalisation des maquettes graphiques</td>
+          </tr>
+          <tr>
+            <td><span class="step-number">4</span></td>
+            <td>Développement des fonctionnalités</td>
+          </tr>
+          <tr>
+            <td><span class="step-number">5</span></td>
+            <td>Intégration de la base de données</td>
+          </tr>
+          <tr>
+            <td><span class="step-number">6</span></td>
+            <td>Tests et corrections</td>
+          </tr>
+          <tr>
+            <td><span class="step-number">7</span></td>
+            <td>Mise en ligne de la plateforme</td>
+          </tr>
+          <tr>
+            <td><span class="step-number">8</span></td>
+            <td>Formation des administrateurs et formateurs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 10. VALIDATION -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">10</div>
+        <h2>Critères de validation et de réception</h2>
+      </div>
+
+      <div class="subsection">
+        <p>La plateforme sera considérée comme conforme lorsque les éléments suivants auront été vérifiés :</p>
+        <ul>
+          <li>Les utilisateurs peuvent accéder aux espaces correspondant à leurs profils</li>
+          <li>Les apprenants peuvent consulter les formations disponibles</li>
+          <li>Les inscriptions en ligne et par les formateurs sont opérationnelles</li>
+          <li>La recherche des centres fonctionne</li>
+          <li>Les centres peuvent être localisés sur la carte</li>
+          <li>Les formateurs peuvent planifier les séances</li>
+          <li>Les présences peuvent être enregistrées</li>
+          <li>Les administrateurs peuvent gérer les ressources pédagogiques</li>
+          <li>Les statistiques sont consultables</li>
+          <li>Les documents peuvent être téléchargés</li>
+          <li>L'interface fonctionne sur smartphone et ordinateur</li>
+          <li>Les principales fonctionnalités sont testées et opérationnelles</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 11. ÉVOLUTION -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">11</div>
+        <h2>Évolution future de la plateforme</h2>
+      </div>
+
+      <p>Après la première mise en service, plusieurs améliorations pourront être envisagées :</p>
+
+      <div class="evolution-grid">
+        <div class="evolution-item">
+          <div class="evolution-icon">🏫</div>
+          <div>Ajout de nouveaux centres d'alphabétisation</div>
+        </div>
+        <div class="evolution-item">
+          <div class="evolution-icon">📱</div>
+          <div>Développement d'une application mobile</div>
+        </div>
+        <div class="evolution-item">
+          <div class="evolution-icon">🎮</div>
+          <div>Modules pédagogiques interactifs</div>
+        </div>
+        <div class="evolution-item">
+          <div class="evolution-icon">🔔</div>
+          <div>Système de notifications</div>
+        </div>
+        <div class="evolution-item">
+          <div class="evolution-icon">📊</div>
+          <div>Nouveaux outils d'évaluation</div>
+        </div>
+        <div class="evolution-item">
+          <div class="evolution-icon">🗺️</div>
+          <div>Extension à d'autres régions de Côte d'Ivoire</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. CONCLUSION -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">12</div>
+        <h2>Conclusion</h2>
+      </div>
+
+      <div class="conclusion">
+        <h2>🌟 Le projet « Savoir Pour Tous »</h2>
+        <p>vise à mettre la technologie numérique au service de l'alphabétisation des adultes en Côte d'Ivoire.</p>
+        <p>La plateforme permettra de rapprocher les apprenants des centres de formation, de simplifier les inscriptions et d'améliorer le suivi pédagogique.</p>
+        <p style="margin-top: 20px;">Elle devra être conçue autour de trois principes fondamentaux :</p>
+        <div class="principles">
+          <div class="principle">✨ Simplicité</div>
+          <div class="principle">🤝 Accessibilité</div>
+          <div class="principle">⚡ Efficacité</div>
+        </div>
+        <p style="margin-top: 30px; font-size: 14px; opacity: 0.9;">
+          Ce cahier des charges constitue la base de référence pour la conception, le développement, les tests et la mise en service de la plateforme numérique.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

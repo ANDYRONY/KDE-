@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Cahier des charges - SAVOIR POUR TOUS</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2cm 2.5cm;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Calibri', 'Arial', sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    background: #e0e0e0;
+  }
+  
+  .page {
+    width: 21cm;
+    min-height: 29.7cm;
+    background: white;
+    margin: 20px auto;
+    padding: 2cm 2.5cm;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    position: relative;
+    page-break-after: always;
+  }
+  
+  /* PAGE DE GARDE */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 25.7cm;
+  }
+  
+  .cover-top {
+    text-align: center;
+    padding-top: 1cm;
+  }
+  
+  .cover-logo {
+    margin-bottom: 1cm;
+  }
+  
+  .cover-logo img {
+    max-width: 12cm;
+    height: auto;
+  }
+  
+  .cover-line {
+    width: 8cm;
+    height: 2px;
+    background: #1a3a4a;
+    margin: 0.5cm auto;
+  }
+  
+  .cover-title {
+    margin: 2cm 0 1cm 0;
+  }
+  
+  .cover-title h1 {
+    font-size: 28pt;
+    font-weight: bold;
+    color: #1a3a4a;
+    margin-bottom: 0.3cm;
+    letter-spacing: 1px;
+  }
+  
+  .cover-title h2 {
+    font-size: 16pt;
+    font-weight: normal;
+    color: #555;
+    font-style: italic;
+  }
+  
+  .cover-subtitle {
+    font-size: 13pt;
+    color: #333;
+    margin-top: 1cm;
+    line-height: 1.6;
+  }
+  
+  .cover-info {
+    margin-top: 2cm;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 0.5cm 0;
+  }
+  
+  .cover-info table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .cover-info td {
+    padding: 6px 10px;
+    font-size: 11pt;
+  }
+  
+  .cover-info td:first-child {
+    font-weight: bold;
+    width: 40%;
+    color: #1a3a4a;
+  }
+  
+  .cover-bottom {
+    text-align: center;
+    padding-bottom: 1cm;
+    font-size: 10pt;
+    color: #666;
+  }
+  
+  .cover-version {
+    display: inline-block;
+    border: 1px solid #1a3a4a;
+    padding: 4px 15px;
+    color: #1a3a4a;
+    font-weight: bold;
+    margin-top: 0.5cm;
+  }
+  
+  /* EN-TÊTE ET PIED DE PAGE */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1a3a4a;
+    padding-bottom: 8px;
+    margin-bottom: 0.8cm;
+    font-size: 9pt;
+    color: #1a3a4a;
+  }
+  
+  .header-left {
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .header-right {
+    font-style: italic;
+  }
+  
+  .footer {
+    position: absolute;
+    bottom: 1.5cm;
+    left: 2.5cm;
+    right: 2.5cm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 9pt;
+    color: #888;
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+  }
+  
+  /* SOMMAIRE */
+  .sommaire-title {
+    font-size: 18pt;
+    color: #1a3a4a;
+    font-weight: bold;
+    margin-bottom: 0.8cm;
+    padding-bottom: 0.2cm;
+    border-bottom: 2px solid #1a3a4a;
+  }
+  
+  .sommaire-list {
+    list-style: none;
+  }
+  
+  .sommaire-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dotted #ccc;
+    font-size: 11pt;
+  }
+  
+  .sommaire-list li span:last-child {
+    color: #666;
+    font-weight: bold;
+  }
+  
+  .sommaire-note {
+    margin-top: 1cm;
+    padding: 0.4cm;
+    background: #f5f5f5;
+    border-left: 3px solid #1a3a4a;
+    font-size: 10pt;
+    font-style: italic;
+    color: #555;
+  }
+  
+  /* SECTIONS */
+  .section-title {
+    font-size: 16pt;
+    color: #1a3a4a;
+    font-weight: bold;
+    margin: 0.5cm 0 0.4cm 0;
+    padding-bottom: 0.2cm;
+    border-bottom: 1.5px solid #1a3a4a;
+  }
+  
+  .sub-title {
+    font-size: 12pt;
+    color: #1a3a4a;
+    font-weight: bold;
+    margin: 0.5cm 0 0.3cm 0;
+  }
+  
+  p {
+    text-align: justify;
+    margin-bottom: 0.3cm;
+  }
+  
+  ul {
+    margin-left: 0.6cm;
+    margin-bottom: 0.4cm;
+  }
+  
+  li {
+    margin-bottom: 0.15cm;
+  }
+  
+  /* TABLEAUX */
+  table.data {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.4cm 0;
+    font-size: 10pt;
+  }
+  
+  table.data thead {
+    background: #1a3a4a;
+    color: white;
+  }
+  
+  table.data th {
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: bold;
+    border: 1px solid #1a3a4a;
+  }
+  
+  table.data td {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+  }
+  
+  table.data tbody tr:nth-child(even) {
+    background: #f8f8f8;
+  }
+  
+  /* ENCADRÉ */
+  .encadre {
+    background: #f5f5f5;
+    border-left: 4px solid #1a3a4a;
+    padding: 0.4cm 0.5cm;
+    margin: 0.4cm 0;
+    font-size: 10.5pt;
+  }
+  
+  .encadre strong {
+    color: #1a3a4a;
+  }
+  
+  /* GRILLE UTILISATEURS */
+  .user-block {
+    margin-bottom: 0.5cm;
+    padding: 0.4cm;
+    border: 1px solid #ddd;
+    border-top: 3px solid #1a3a4a;
+    background: #fafafa;
+  }
+  
+  .user-block h3 {
+    color: #1a3a4a;
+    font-size: 12pt;
+    margin-bottom: 0.2cm;
+  }
+  
+  .user-block p {
+    font-size: 10.5pt;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 0.2cm;
+  }
+  
+  /* CONCLUSION */
+  .conclusion-box {
+    border: 2px solid #1a3a4a;
+    padding: 0.6cm;
+    margin-top: 0.5cm;
+    background: #fafafa;
+  }
+  
+  .principles {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5cm;
+    padding-top: 0.4cm;
+    border-top: 1px solid #ddd;
+  }
+  
+  .principle {
+    text-align: center;
+    font-weight: bold;
+    color: #1a3a4a;
+    font-size: 11pt;
+    letter-spacing: 1px;
+  }
+  
+  /* IMPRESSION */
+  @media print {
+    body {
+      background: white;
+    }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      width: 100%;
+      min-height: auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE DE GARDE -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="cover-logo">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAyCAYAAAAZUZThAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAWdEVYdENyZWF0aW9uIFRpbWUAMTEvMTkvMjYwQh9BAAA..." alt="Logo IISAN" style="max-width: 12cm; height: auto;">
+    </div>
+    
+    <div class="cover-title">
+      <h1>CAHIER DES CHARGES</h1>
+      <h2>Projet 10 — Savoir Pour Tous</h2>
+    </div>
+    
+    <div class="cover-subtitle">
+      Conception et développement d'une plateforme numérique<br>
+      d'alphabétisation pour adultes en Côte d'Ivoire
+    </div>
+    
+    <div class="cover-info">
+      <table>
+        <tr><td>Document</td><td>Cahier des charges fonctionnel et technique</td></tr>
+        <tr><td>Structure porteuse</td><td>IISAN - Institut International des Sciences et des Arts du Numérique</td></tr>
+        <tr><td>Zone de déploiement</td><td>Côte d'Ivoire</td></tr>
+        <tr><td>Date de rédaction</td><td>Novembre 2026</td></tr>
+        <tr><td>Version</td><td>1.0</td></tr>
+      </table>
+    </div>
+  </div>
+  
+  <div class="cover-bottom">
+    Document de référence pour la conception, le développement et la mise en service de la plateforme.
+    <div class="cover-version">VERSION 1.0</div>
+  </div>
+</div>
+
+<!-- SOMMAIRE -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="sommaire-title">Sommaire</h1>
+  
+  <ul class="sommaire-list">
+    <li><span>1. Présentation générale du projet</span><span>3</span></li>
+    <li><span>2. Identification des utilisateurs</span><span>4</span></li>
+    <li><span>3. Description des fonctionnalités attendues</span><span>5</span></li>
+    <li><span>4. Fonctionnalités innovantes</span><span>7</span></li>
+    <li><span>5. Exigences ergonomiques et accessibilité</span><span>8</span></li>
+    <li><span>6. Exigences techniques</span><span>9</span></li>
+    <li><span>7. Contraintes du projet</span><span>10</span></li>
+    <li><span>8. Résultats attendus</span><span>11</span></li>
+    <li><span>9. Planning prévisionnel de réalisation</span><span>12</span></li>
+    <li><span>10. Critères de validation et de réception</span><span>13</span></li>
+    <li><span>11. Évolution future de la plateforme</span><span>14</span></li>
+    <li><span>12. Conclusion</span><span>15</span></li>
+  </ul>
+  
+  <div class="sommaire-note">
+    Note : le présent cahier des charges est établi à partir du rapport de cadrage et d'analyse terrain fourni pour le projet « Savoir Pour Tous ».
+  </div>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 2</span>
+  </div>
+</div>
+
+<!-- SECTION 1 -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="section-title">1. Présentation générale du projet</h1>
+  
+  <h2 class="sub-title">1.1. Contexte</h2>
+  <p>L'alphabétisation des adultes représente un enjeu important pour le développement social et économique de la Côte d'Ivoire. Dans le cadre de ses activités, l'IISAN souhaite mettre en place une plateforme numérique permettant de faciliter l'accès aux programmes d'alphabétisation, de simplifier les inscriptions et d'améliorer le suivi pédagogique des apprenants.</p>
+  <p>Une enquête terrain réalisée auprès de 20 personnes a permis d'identifier plusieurs difficultés rencontrées par les apprenants, les formateurs et leurs proches. Les résultats montrent notamment un manque d'informations sur les centres de formation, des difficultés de localisation et un besoin important de supports pédagogiques accessibles.</p>
+  
+  <h2 class="sub-title">1.2. Problématique</h2>
+  <p>Comment concevoir une plateforme numérique simple, accessible et adaptée aux réalités locales permettant aux adultes d'accéder facilement aux cours d'alphabétisation, de s'inscrire et de suivre leur progression pédagogique ?</p>
+  
+  <h2 class="sub-title">1.3. Objectif général</h2>
+  <p>Concevoir et développer une plateforme numérique inclusive permettant de faciliter l'accès à l'alphabétisation des adultes en Côte d'Ivoire tout en améliorant la gestion administrative et pédagogique des centres de formation.</p>
+  
+  <h2 class="sub-title">1.4. Objectifs spécifiques</h2>
+  <ul>
+    <li>Faciliter la localisation des centres d'alphabétisation.</li>
+    <li>Permettre aux apprenants de consulter les cours disponibles.</li>
+    <li>Simplifier les procédures d'inscription.</li>
+    <li>Permettre aux formateurs de gérer leurs séances.</li>
+    <li>Assurer le suivi des présences et de la progression des apprenants.</li>
+    <li>Mettre à disposition des ressources pédagogiques numériques.</li>
+    <li>Faciliter la gestion des centres par l'administration de l'IISAN.</li>
+    <li>Rendre la plateforme accessible aux personnes ayant peu d'expérience numérique.</li>
+  </ul>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 3</span>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="section-title">2. Identification des utilisateurs</h1>
+  
+  <div class="user-block">
+    <h3>2.1. Les apprenants</h3>
+    <p>Public principal de la plateforme</p>
+    <ul>
+      <li>Consulter les centres d'alphabétisation et rechercher les cours selon leur commune.</li>
+      <li>Consulter les horaires et les disponibilités.</li>
+      <li>S'inscrire à une formation.</li>
+      <li>Télécharger les supports pédagogiques.</li>
+      <li>Consulter les informations relatives à leur formation et suivre leur progression pédagogique.</li>
+    </ul>
+  </div>
+  
+  <div class="user-block">
+    <h3>2.2. Les proches</h3>
+    <p>Accompagnent les personnes souhaitant apprendre à lire et à écrire</p>
+    <ul>
+      <li>Consulter les centres disponibles.</li>
+      <li>Rechercher les formations adaptées.</li>
+      <li>Effectuer une inscription au nom d'un apprenant.</li>
+      <li>Consulter les informations pratiques relatives aux formations.</li>
+    </ul>
+  </div>
+  
+  <div class="user-block">
+    <h3>2.3. Les formateurs</h3>
+    <p>Chargés de la gestion pédagogique des apprenants</p>
+    <ul>
+      <li>Consulter les apprenants inscrits.</li>
+      <li>Planifier les séances de formation et gérer les horaires des cours.</li>
+      <li>Enregistrer les présences.</li>
+      <li>Évaluer le niveau de maîtrise des compétences.</li>
+      <li>Consulter la progression des apprenants.</li>
+    </ul>
+  </div>
+  
+  <div class="user-block">
+    <h3>2.4. Les administrateurs de l'IISAN</h3>
+    <p>Responsables de la gestion globale de la plateforme</p>
+    <ul>
+      <li>Gérer les comptes utilisateurs, les centres, les formateurs, les apprenants et les formations.</li>
+      <li>Publier les ressources pédagogiques.</li>
+      <li>Consulter les statistiques générales ainsi que les activités des centres.</li>
+    </ul>
+  </div>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 4</span>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="section-title">3. Description des fonctionnalités attendues</h1>
+  
+  <h2 class="sub-title">3.1. Page d'accueil</h2>
+  <p>La page d'accueil devra présenter clairement le projet « Savoir Pour Tous » et comporter :</p>
+  <ul>
+    <li>Une présentation de l'IISAN et des programmes d'alphabétisation.</li>
+    <li>Un accès aux centres de formation et aux informations pratiques.</li>
+    <li>Un bouton d'inscription.</li>
+    <li>Un accès rapide aux formations du samedi.</li>
+    <li>Une interface simple et compréhensible.</li>
+  </ul>
+  
+  <h2 class="sub-title">3.2. Module de recherche des centres</h2>
+  <p>La plateforme devra intégrer un système de recherche permettant de retrouver facilement les centres d'alphabétisation :</p>
+  <ul>
+    <li>Recherche par commune.</li>
+    <li>Affichage des centres disponibles, de leurs coordonnées et de leurs horaires.</li>
+    <li>Localisation des centres sur une carte.</li>
+    <li>Proposition d'un itinéraire simplifié vers le centre sélectionné.</li>
+  </ul>
+  <p>La cartographie devra couvrir Abidjan et les autres localités concernées, notamment Bouaké.</p>
+  
+  <h2 class="sub-title">3.3. Module d'inscription</h2>
+  <p><strong>Inscription en ligne :</strong> remplissage d'un formulaire, enregistrement des informations de l'apprenant, choix du centre et des disponibilités, puis validation de la demande.</p>
+  <p><strong>Inscription par le formateur :</strong> enregistrement manuel de l'apprenant, association à un centre et enregistrement de sa formation.</p>
+  <p>Le formulaire devra être simple et accessible.</p>
+  
+  <h2 class="sub-title">3.4. Espace apprenant</h2>
+  <ul>
+    <li>Consulter ses informations et son centre de formation.</li>
+    <li>Visualiser son planning.</li>
+    <li>Accéder aux ressources pédagogiques et télécharger des exercices.</li>
+    <li>Consulter son évolution pédagogique.</li>
+  </ul>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 5</span>
+  </div>
+</div>
+
+<!-- SECTION 3 (suite) -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h2 class="sub-title">3.5. Espace formateur</h2>
+  <ul>
+    <li>Consulter la liste des apprenants.</li>
+    <li>Gérer et planifier les séances.</li>
+    <li>Utiliser une feuille de présence numérique.</li>
+    <li>Suivre l'assiduité et évaluer les compétences.</li>
+    <li>Consulter l'évolution des apprenants.</li>
+  </ul>
+  
+  <h2 class="sub-title">3.6. Espace administrateur</h2>
+  <ul>
+    <li>Gérer les utilisateurs, les centres, les formations et les formateurs.</li>
+    <li>Publier et gérer les documents pédagogiques.</li>
+    <li>Consulter les statistiques et suivre les activités des centres.</li>
+  </ul>
+  
+  <h2 class="sub-title">3.7. Bibliothèque pédagogique</h2>
+  <p>La plateforme devra disposer d'un espace de téléchargement des ressources pédagogiques : PDF, documents pédagogiques simplifiés, fichiers audio et fiches d'exercices. Les apprenants pourront télécharger ces ressources pour les consulter en dehors des heures de formation.</p>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 6</span>
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="section-title">4. Fonctionnalités innovantes</h1>
+  
+  <h2 class="sub-title">4.1. Cartographie interactive</h2>
+  <p>Un module de localisation permettra aux utilisateurs de trouver les centres d'alphabétisation les plus proches, avec une représentation sur carte et un itinéraire simplifié.</p>
+  
+  <h2 class="sub-title">4.2. Assistance audio</h2>
+  <p>Une fonctionnalité de synthèse vocale devra permettre de lire à haute voix certaines consignes et informations présentes sur la plateforme. Elle facilitera l'utilisation par les personnes ayant des difficultés de lecture.</p>
+  
+  <h2 class="sub-title">4.3. Mode hors connexion</h2>
+  <p>La plateforme devra permettre le téléchargement des ressources pédagogiques afin que les apprenants puissent travailler sans connexion Internet permanente. Le fonctionnement hors connexion sera limité aux ressources préalablement téléchargées.</p>
+  
+  <h2 class="sub-title">4.4. Filtre spécial week-end</h2>
+  <p>Un bouton spécifique permettra d'afficher rapidement les formations disponibles le samedi. Cette fonctionnalité répond au résultat de l'enquête indiquant que 60% des répondants privilégient cette journée.</p>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 7</span>
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="section-title">5. Exigences ergonomiques et accessibilité</h1>
+  
+  <p>La plateforme devra respecter les exigences suivantes :</p>
+  <ul>
+    <li>Interface simple et intuitive.</li>
+    <li>Textes courts et faciles à comprendre.</li>
+    <li>Utilisation de pictogrammes explicites.</li>
+    <li>Boutons suffisamment visibles.</li>
+    <li>Navigation facile entre les différentes rubriques.</li>
+    <li>Assistance audio pour certaines consignes.</li>
+    <li>Adaptation aux téléphones, tablettes et ordinateurs.</li>
+    <li>Limitation des étapes nécessaires à l'inscription.</li>
+  </ul>
+  
+  <div class="encadre">
+    <strong>Objectif :</strong> permettre à une personne ayant peu d'expérience avec les outils numériques d'utiliser facilement la plateforme.
+  </div>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 8</span>
+  </div>
+</div>
+
+<!-- SECTION 6 -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="section-title">6. Exigences techniques</h1>
+  
+  <h2 class="sub-title">6.1. Accessibilité technique</h2>
+  <ul>
+    <li>Être accessible depuis un navigateur Internet.</li>
+    <li>Être compatible avec les ordinateurs, smartphones et tablettes.</li>
+    <li>Proposer une interface adaptée aux petits écrans.</li>
+    <li>Fonctionner avec une connexion Internet de qualité variable.</li>
+    <li>Permettre le téléchargement des ressources pédagogiques.</li>
+  </ul>
+  
+  <h2 class="sub-title">6.2. Gestion des comptes</h2>
+  <p>La plateforme devra intégrer un système d'authentification adapté aux différents profils. Chaque utilisateur disposera de droits correspondant à son rôle.</p>
+  
+  <h2 class="sub-title">6.3. Sécurité</h2>
+  <ul>
+    <li>Protection des comptes utilisateurs.</li>
+    <li>Sécurisation des données personnelles.</li>
+    <li>Gestion des autorisations selon les profils.</li>
+    <li>Protection contre les accès non autorisés.</li>
+    <li>Sauvegarde régulière des données.</li>
+    <li>Procédure de récupération des comptes.</li>
+  </ul>
+  
+  <h2 class="sub-title">6.4. Gestion des données</h2>
+  <p>Les informations concernant les apprenants, les formateurs, les centres et les formations devront être centralisées dans une base de données.</p>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 9</span>
+  </div>
+</div>
+
+<!-- SECTION 7 -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="section-title">7. Contraintes du projet</h1>
+  
+  <h2 class="sub-title">7.1. Contraintes humaines</h2>
+  <p>La plateforme devra être adaptée à des utilisateurs ayant des niveaux différents de maîtrise du numérique et de lecture.</p>
+  
+  <h2 class="sub-title">7.2. Contraintes géographiques</h2>
+  <p>Le projet devra tenir compte de la dispersion géographique des apprenants et des centres de formation sur le territoire ivoirien.</p>
+  
+  <h2 class="sub-title">7.3. Contraintes liées à Internet</h2>
+  <p>La plateforme devra être légère et proposer des ressources téléchargeables pour réduire la dépendance à une connexion permanente.</p>
+  
+  <h2 class="sub-title">7.4. Contraintes pédagogiques</h2>
+  <p>Les contenus et les fonctionnalités devront être adaptés aux besoins des adultes en apprentissage.</p>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 10</span>
+  </div>
+</div>
+
+<!-- SECTION 8 -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="section-title">8. Résultats attendus</h1>
+  
+  <p>À la fin du projet, les résultats suivants devront être obtenus :</p>
+  
+  <ul>
+    <li>Une plateforme numérique fonctionnelle.</li>
+    <li>Un système d'inscription des apprenants.</li>
+    <li>Un système de recherche et de localisation des centres.</li>
+    <li>Un espace personnel pour les apprenants.</li>
+    <li>Un espace de gestion pour les formateurs.</li>
+    <li>Un tableau de bord pour les administrateurs.</li>
+    <li>Un système de gestion des présences.</li>
+    <li>Une bibliothèque de ressources pédagogiques.</li>
+    <li>Une fonctionnalité d'assistance audio.</li>
+    <li>Un système de téléchargement des documents.</li>
+    <li>Un filtre permettant de retrouver les formations du samedi.</li>
+  </ul>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 11</span>
+  </div>
+</div>
+
+<!-- SECTION 9 -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="section-title">9. Planning prévisionnel de réalisation</h1>
+  
+  <p>Le calendrier définitif devra être établi par l'équipe chargée du développement. Les grandes étapes proposées sont les suivantes :</p>
+  
+  <table class="data">
+    <thead>
+      <tr>
+        <th style="width: 2cm;">Étape</th>
+        <th>Travaux à réaliser</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Analyse des besoins et validation du cahier des charges</td></tr>
+      <tr><td>2</td><td>Conception de l'architecture de la plateforme</td></tr>
+      <tr><td>3</td><td>Réalisation des maquettes graphiques</td></tr>
+      <tr><td>4</td><td>Développement des fonctionnalités</td></tr>
+      <tr><td>5</td><td>Intégration de la base de données</td></tr>
+      <tr><td>6</td><td>Tests et corrections</td></tr>
+      <tr><td>7</td><td>Mise en ligne de la plateforme</td></tr>
+      <tr><td>8</td><td>Formation des administrateurs et formateurs</td></tr>
+    </tbody>
+  </table>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 12</span>
+  </div>
+</div>
+
+<!-- SECTION 10 -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="section-title">10. Critères de validation et de réception</h1>
+  
+  <p>La plateforme sera considérée comme conforme lorsque les éléments suivants auront été vérifiés :</p>
+  
+  <ul>
+    <li>Les utilisateurs peuvent accéder aux espaces correspondant à leurs profils.</li>
+    <li>Les apprenants peuvent consulter les formations disponibles.</li>
+    <li>Les inscriptions en ligne et par les formateurs sont opérationnelles.</li>
+    <li>La recherche des centres fonctionne.</li>
+    <li>Les centres peuvent être localisés sur la carte.</li>
+    <li>Les formateurs peuvent planifier les séances.</li>
+    <li>Les présences peuvent être enregistrées.</li>
+    <li>Les administrateurs peuvent gérer les ressources pédagogiques.</li>
+    <li>Les statistiques sont consultables.</li>
+    <li>Les documents peuvent être téléchargés.</li>
+    <li>L'interface fonctionne sur smartphone et ordinateur.</li>
+    <li>Les principales fonctionnalités sont testées et opérationnelles.</li>
+  </ul>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 13</span>
+  </div>
+</div>
+
+<!-- SECTION 11 -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="section-title">11. Évolution future de la plateforme</h1>
+  
+  <p>Après la première mise en service, plusieurs améliorations pourront être envisagées :</p>
+  
+  <ul>
+    <li>Ajout de nouveaux centres d'alphabétisation.</li>
+    <li>Développement d'une application mobile.</li>
+    <li>Ajout de nouveaux modules pédagogiques interactifs.</li>
+    <li>Mise en place d'un système de notifications.</li>
+    <li>Développement de nouveaux outils d'évaluation.</li>
+    <li>Extension de la plateforme à d'autres régions de Côte d'Ivoire.</li>
+  </ul>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 14</span>
+  </div>
+</div>
+
+<!-- SECTION 12 - CONCLUSION -->
+<div class="page">
+  <div class="header">
+    <div class="header-left">IISAN - SAVOIR POUR TOUS</div>
+    <div class="header-right">Cahier des charges — v1.0</div>
+  </div>
+  
+  <h1 class="section-title">12. Conclusion</h1>
+  
+  <p>Le projet « Savoir Pour Tous » vise à mettre la technologie numérique au service de l'alphabétisation des adultes en Côte d'Ivoire. La plateforme permettra de rapprocher les apprenants des centres de formation, de simplifier les inscriptions et d'améliorer le suivi pédagogique.</p>
+  
+  <p>Elle devra être conçue autour de trois principes fondamentaux :</p>
+  
+  <div class="conclusion-box">
+    <p>La plateforme numérique « Savoir Pour Tous » se veut un outil au service d'une cause essentielle : permettre à chaque adulte, quel que soit son niveau initial, d'accéder à l'alphabétisation dans des conditions simples, accessibles et efficaces.</p>
+    <p>Ce cahier des charges constitue la base de référence pour la conception, le développement, les tests et la mise en service de la plateforme.</p>
+    
+    <div class="principles">
+      <div class="principle">SIMPLICITÉ</div>
+      <div class="principle">ACCESSIBILITÉ</div>
+      <div class="principle">EFFICACITÉ</div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <span>IISAN - Institut International des Sciences et des Arts du Numérique</span>
+    <span>Page 15</span>
+  </div>
+</div>
+
+</body>
+</html>

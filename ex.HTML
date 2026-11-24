@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TD4 - Exercice 3</title>
+</head>
+<body>
+
+<h1>TD4 - Exercice 3</h1>
+
+<form action="#" method="post" enctype="multipart/form-data">
+
+    <fieldset>
+        <legend>Vos coordonnées</legend>
+
+        <label for="coordNom">Nom :</label>
+        <input type="text" id="x" name="x" value="x"><br>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" value="JAN"><br>
+
+        <label for="mail">Mail :</label>
+        <input type="email" id="mail" name="mail" value="mrkodjo@gamail.com"><br>
+
+        <label for="code">Code :</label>
+        <input type="password" id="code" name="code" value="******"><br>
+
+        <input type="radio" id="homme" name="genre" value="homme">
+        <label for="homme">Homme</label><br>
+
+        <input type="radio" id="femme" name="genre" value="femme">
+        <label for="femme">Femme</label><br>
+
+        <select name="nationalite">
+            <option value="belgique">Belgique</option>
+            <option value="cote-divoire">Côte d'Ivoire</option>
+            <option value="france">France</option>
+        </select>
+    </fieldset>
+
+    <fieldset>
+        <legend>Vos goûts</legend>
+
+        <input type="checkbox" id="pommes" name="gouts" value="pommes" checked>
+        <label for="pommes">Pommes</label><br>
+
+        <input type="checkbox" id="poires" name="gouts" value="poires" checked>
+        <label for="poires">Poires</label><br>
+
+        <input type="checkbox" id="scoubidous" name="gouts" value="scoubidous" checked>
+        <label for="scoubidous">Scoubidous</label><br>
+
+        <textarea name="description" rows="8" cols="60">Tout ce qui peut donner du goût à la vie au scoubidou!</textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>Envoyer nous votre photo</legend>
+        <input type="file" name="photo">
+    </fieldset>
+
+    <input type="reset" value="Effacer">
+    <input type="submit" value="Envoyer">
+</form>
+
+</body>
+</html>

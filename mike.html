@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cahier des charges - Projet 10</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            color: #222;
+            background: #fff;
+        }
+        h1 {
+            border: 3px solid #000;
+            padding: 20px;
+            text-align: center;
+            color: #000;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #000;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 35px;
+        }
+        h3 {
+            color: #000;
+            margin-top: 25px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        p {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CAHIER DES CHARGES FONCTIONNEL ET TECHNIQUE<br>PROJET 10</h1>
+
+    <h2>1. Présentation générale du projet</h2>
+
+    <h3>1.1. Contexte</h3>
+    <p>
+        L'alphabétisation reste un vrai défi pour le développement social et économique de la Côte d'Ivoire.
+        Beaucoup d'adultes ont encore du mal à lire, à écrire ou à trouver des formations adaptées.
+        Le projet « SAVOIR POUR TOUS » veut répondre à ça en créant une plateforme numérique pour une ONG qui travaille sur l'alphabétisation des adultes. L'idée, c'est de l'aider à mieux organiser ses activités et de rendre les formations plus accessibles.
+        On s'est basés sur une enquête faite auprès de 20 personnes (apprenants, formateurs, proches) pour bien cerner les besoins.
+    </p>
+
+    <h3>1.2. Le projet en quelques mots</h3>
+    <p>
+        On veut concevoir une plateforme qui marche sur ordinateur, tablette et téléphone.
+        Elle permettra de :
+    </p>
+    <ul>
+        <li>Montrer les centres d'alphabétisation disponibles</li>
+        <li>Rendre l'inscription plus simple</li>
+        <li>Donner les infos sur les horaires et les lieux</li>
+        <li>Aider les formateurs à gérer leurs apprenants et leurs séances</li>
+        <li>Partager des ressources pédagogiques</li>
+        <li>Suivre la présence et la progression des apprenants</li>
+    </ul>
+
+    <h2>2. Ce qu'on cherche à régler</h2>
+    <p>L'ONG a plusieurs soucis au quotidien :</p>
+    <ul>
+        <li>Les centres ne sont pas assez visibles</li>
+        <li>Les apprenants ne savent pas toujours où et quand ont lieu les cours</li>
+        <li>Il n'y a pas de système centralisé pour suivre la pédagogie</li>
+        <li>Gérer les inscriptions et les présences, c'est compliqué</li>
+        <li>Les supports pédagogiques ne sont pas dispo en dehors des heures de cours</li>
+    </ul>
+    <p>La plateforme doit apporter des réponses concrètes à tout ça.</p>
+
+    <h2>3. Objectifs</h2>
+
+    <h3>3.1. Objectif principal</h3>
+    <p>
+        Mettre en place une plateforme inclusive qui facilite l'accès à l'alphabétisation des adultes et qui améliore la gestion (admin et pédagogique) des centres.
+    </p>
+
+    <h3>3.2. Objectifs plus précis</h3>
+    <ul>
+        <li>Aider à trouver un centre d'alphabétisation</li>
+        <li>Simplifier les inscriptions</li>
+        <li>Regrouper les infos sur les apprenants</li>
+        <li>Permettre de planifier les séances</li>
+        <li>Suivre les présences</li>
+        <li>Évaluer la progression</li>
+        <li>Faciliter le téléchargement des supports</li>
+        <li>Améliorer la communication entre l'ONG, les formateurs et les apprenants</li>
+    </ul>
+
+    <h2>4. À qui s'adresse la plateforme</h2>
+
+    <h3>4.1. Les apprenants</h3>
+    <ul>
+        <li>Voir les formations disponibles</li>
+        <li>Chercher un centre par commune</li>
+        <li>Consulter les horaires</li>
+        <li>S'inscrire en ligne</li>
+        <li>Télécharger les supports</li>
+        <li>Suivre leur progression</li>
+    </ul>
+
+    <h3>4.2. Les formateurs</h3>
+    <ul>
+        <li>Voir leurs séances</li>
+        <li>Planifier les cours</li>
+        <li>Noter les présences</li>
+        <li>Suivre les résultats et la progression</li>
+        <li>Inscrire manuellement des apprenants</li>
+    </ul>
+
+    <h3>4.3. Les administrateurs de l'ONG</h3>
+    <ul>
+        <li>Gérer les comptes</li>
+        <li>Ajouter ou modifier les centres</li>
+        <li>Gérer les formations et les formateurs</li>
+        <li>Gérer les inscriptions</li>
+        <li>Publier les ressources pédagogiques</li>
+        <li>Voir les statistiques générales</li>
+        <li>Suivre l'assiduité et le nombre d'apprenants par centre</li>
+    </ul>
+
+    <h2>5. Fonctionnalités prévues</h2>
+
+    <h3>5.1. Page d'accueil</h3>
+    <ul>
+        <li>Nom et logo de l'ONG</li>
+        <li>Présentation du programme</li>
+        <li>Liste des centres</li>
+        <li>Accès rapide aux inscriptions</li>
+        <li>Infos principales sur les formations</li>
+        <li>Un bouton pour trouver les cours du samedi</li>
+    </ul>
+
+    <h3>5.2. Recherche géographique</h3>
+    <ul>
+        <li>Recherche par commune</li>
+        <li>Carte interactive</li>
+        <li>Fiches des centres</li>
+        <li>Localisation du centre le plus proche</li>
+        <li>Itinéraire simplifié</li>
+        <li>Accessible sans compte</li>
+    </ul>
+
+    <h3>5.3. Inscription</h3>
+    <ul>
+        <li>Inscription autonome</li>
+        <li>Inscription par un proche</li>
+        <li>Inscription manuelle par un formateur</li>
+        <li>Enregistrement des infos utiles</li>
+        <li>Consultation du statut</li>
+    </ul>
+    <p>Le formulaire doit rester simple, clair et adapté aux personnes peu à l'aise avec le numérique.</p>
+
+    <h3>5.4. Espace apprenant</h3>
+    <ul>
+        <li>Horaires</li>
+        <li>Centre d'affectation</li>
+        <li>Supports pédagogiques</li>
+        <li>Téléchargement PDF et audio</li>
+        <li>Suivi de la progression</li>
+    </ul>
+
+    <h3>5.5. Espace formateur</h3>
+    <ul>
+        <li>Gestion des séances</li>
+        <li>Listes d'apprenants</li>
+        <li>Présences en ligne</li>
+        <li>Évaluation des compétences</li>
+        <li>Suivi de l'évolution</li>
+    </ul>
+
+    <h3>5.6. Espace administrateur</h3>
+    <ul>
+        <li>Gestion des utilisateurs, centres, formations</li>
+        <li>Gestion des ressources</li>
+        <li>Statistiques</li>
+        <li>Suivi des inscriptions</li>
+        <li>Taux d'assiduité</li>
+    </ul>
+
+    <h2>6. Les petits plus</h2>
+
+    <h3>6.1. Interface avec aide audio</h3>
+    <ul>
+        <li>Lecture vocale des consignes</li>
+        <li>Pictogrammes simples</li>
+        <li>Navigation facile</li>
+        <li>Textes courts</li>
+    </ul>
+
+    <h3>6.2. Mode hors ligne</h3>
+    <p>Les apprenants pourront télécharger les ressources (PDF, audio, fiches d'exercices) pour les consulter sans connexion.</p>
+
+    <h3>6.3. Filtre week-end</h3>
+    <p>Un accès rapide pour voir les formations du samedi. 60 % des personnes interrogées ont dit que c'était leur jour de disponibilité principal.</p>
+
+    <h3>6.4. Carte interactive</h3>
+    <p>Une carte pour voir les centres à Abidjan et dans le reste du pays, notamment à Bouaké.</p>
+
+    <h2>7. Côté technique et ergonomie</h2>
+    <ul>
+        <li>Interface simple et intuitive</li>
+        <li>Design moderne et responsive</li>
+        <li>Compatible smartphone, tablette, ordinateur</li>
+        <li>Navigation adaptée aux personnes peu à l'aise avec le numérique</li>
+        <li>Temps de chargement correct</li>
+        <li>Pictogrammes clairs</li>
+        <li>Lecture vocale</li>
+        <li>Téléchargement des ressources</li>
+        <li>Espaces utilisateurs bien séparés</li>
+    </ul>
+
+    <h2>8. Sécurité et données</h2>
+    <ul>
+        <li>Authentification sécurisée pour les administrateurs et formateurs</li>
+        <li>Gestion des rôles</li>
+        <li>Protection des données personnelles</li>
+        <li>Sauvegardes régulières</li>
+        <li>Protection contre les accès non autorisés</li>
+        <li>Échanges de données sécurisés</li>
+        <li>Réinitialisation des mots de passe possible</li>
+    </ul>
+    <p>Les données personnelles servent uniquement dans le cadre des activités de l'ONG, en respectant la réglementation ivoirienne.</p>
+
+    <h2>9. Organisation du site</h2>
+    <ul>
+        <li>Accueil</li>
+        <li>Présentation de l'ONG</li>
+        <li>Centres d'alphabétisation</li>
+        <li>Carte des centres</li>
+        <li>Formations disponibles</li>
+        <li>Inscription</li>
+        <li>Espace apprenant</li>
+        <li>Espace formateur</li>
+        <li>Espace administrateur</li>
+        <li>Ressources pédagogiques</li>
+        <li>Assistance et contact</li>
+    </ul>
+
+    <h2>10. Ce qu'on livre à la fin</h2>
+    <ul>
+        <li>Un site web qui fonctionne</li>
+        <li>Une interface responsive</li>
+        <li>Les espaces admin, formateur et apprenant opérationnels</li>
+        <li>Un module d'inscription</li>
+        <li>Un système de localisation</li>
+        <li>Une bibliothèque de ressources</li>
+        <li>Un système de suivi des présences</li>
+        <li>Une documentation technique</li>
+        <li>Un guide d'utilisation</li>
+    </ul>
+
+    <h2>11. Les étapes du projet</h2>
+    <ul>
+        <li><strong>Phase 1 :</strong> Analyse des besoins de l'ONG et des résultats de l'enquête</li>
+        <li><strong>Phase 2 :</strong> Conception (arborescence, maquettes, organisation des espaces)</li>
+        <li><strong>Phase 3 :</strong> Développement et mise en place de la base de données</li>
+        <li><strong>Phase 4 :</strong> Tests (inscriptions, carte, espaces, modules pédagogiques)</li>
+        <li><strong>Phase 5 :</strong> Mise en ligne et configuration de l'hébergement</li>
+        <li><strong>Phase 6 :</strong> Formation des administrateurs et formateurs, corrections et améliorations</li>
+    </ul>
+
+    <h2>12. Comment on valide</h2>
+    <p>La plateforme sera considérée comme bonne quand :</p>
+    <ul>
+        <li>On pourra consulter les centres</li>
+        <li>Les apprenants pourront s'inscrire en ligne</li>
+        <li>Les formateurs pourront gérer séances et présences</li>
+        <li>Les administrateurs pourront gérer centres et utilisateurs</li>
+        <li>Les ressources seront téléchargeables</li>
+        <li>La carte interactive fonctionnera</li>
+        <li>Le filtre du samedi marchera bien</li>
+        <li>L'interface sera utilisable sur téléphone et ordinateur</li>
+        <li>Les données seront protégées</li>
+    </ul>
+
+    <h2>13. Ce qu'il faut garder en tête</h2>
+    <ul>
+        <li>Niveau de lecture et d'écriture très variable</li>
+        <li>Accès à Internet parfois limité</li>
+        <li>Utilisation fréquente du téléphone portable</li>
+        <li>Besoin d'une interface accessible</li>
+        <li>Disponibilité des apprenants surtout le samedi</li>
+    </ul>
+    <p>Le budget, le calendrier précis, les technologies finales et l'hébergement devront être calés avant de lancer le développement.</p>
+
+    <h2>14. Pour finir</h2>
+    <p>
+        Le projet « SAVOIR POUR TOUS » veut apporter une solution numérique pour améliorer l'accès à l'alphabétisation des adultes en Côte d'Ivoire.
+        Grâce à ses différents modules, la plateforme permettra de rapprocher les apprenants des centres, de simplifier les inscriptions, d'améliorer le suivi pédagogique et de proposer des ressources éducatives accessibles.
+        Ce cahier des charges sert de référence pour la conception, le développement, les tests et la mise en ligne de la plateforme.
+    </p>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maison & Style | Architecture intérieure</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- EN-TETE DU SITE -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">MAISON <span>& STYLE</span></a>
+
+            <button class="menu-toggle" id="menu-toggle">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#realisations">Réalisations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PAGE D'ACCUEIL -->
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <p class="subtitle">ARCHITECTURE & DÉCORATION</p>
+
+            <h1>Votre intérieur mérite d'être exceptionnel.</h1>
+
+            <p>
+                Nous vous accompagnons dans l'aménagement,
+                la décoration et la transformation de vos espaces.
+            </p>
+
+            <a href="#contact" class="btn">
+                Parlons de votre projet
+            </a>
+        </div>
+    </section>
+
+    <!-- PRESENTATION -->
+    <section class="about" id="apropos">
+        <div class="section-title">
+            <p>QUI SOMMES-NOUS ?</p>
+            <h2>Créer des espaces qui vous ressemblent</h2>
+        </div>
+
+        <p>
+            Nous accompagnons les particuliers et les professionnels
+            dans leurs projets d'aménagement et de décoration intérieure.
+            Notre objectif est de transformer chaque espace en un lieu
+            agréable, fonctionnel et harmonieux.
+        </p>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <p>NOTRE SAVOIR-FAIRE</p>
+            <h2>Nos services</h2>
+        </div>
+
+        <div class="service-container">
+
+            <article class="service-card">
+                <div class="service-icon">⌂</div>
+                <h3>Décoration intérieure</h3>
+                <p>
+                    Conseils sur les couleurs, les meubles,
+                    les matières et les accessoires.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">▦</div>
+                <h3>Aménagement des espaces</h3>
+                <p>
+                    Organisation et optimisation de vos pièces
+                    pour un meilleur confort.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">✦</div>
+                <h3>Consultation personnalisée</h3>
+                <p>
+                    Des recommandations adaptées à vos goûts,
+                    vos besoins et votre budget.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon">◇</div>
+                <h3>Rénovation</h3>
+                <p>
+                    Accompagnement dans la transformation
+                    et la modernisation de vos espaces.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- REALISATIONS -->
+    <section class="projects" id="realisations">
+        <div class="section-title">
+            <p>NOS INSPIRATIONS</p>
+            <h2>Des espaces qui inspirent</h2>
+        </div>
+
+        <div class="project-container">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800"
+                 alt="Salon moderne">
+
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800"
+                 alt="Décoration intérieure">
+
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
+                 alt="Maison contemporaine">
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <p>DONNONS VIE À VOS IDÉES</p>
+            <h2>Parlons de votre projet</h2>
+        </div>
+
+        <form id="contact-form">
+
+            <input type="text" placeholder="Votre nom" required>
+
+            <input type="email" placeholder="Votre adresse e-mail" required>
+
+            <select required>
+                <option value="">Choisir un service</option>
+                <option>Décoration intérieure</option>
+                <option>Aménagement</option>
+                <option>Rénovation</option>
+                <option>Consultation</option>
+            </select>
+
+            <textarea placeholder="Décrivez votre projet"
+                      required></textarea>
+
+            <button type="submit" class="btn">
+                Envoyer ma demande
+            </button>
+
+            <p id="form-message"></p>
+
+        </form>
+    </section>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p>© 2026 Maison & Style - Tous droits réservés.</p>
+        <p>Architecture intérieure et décoration.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
